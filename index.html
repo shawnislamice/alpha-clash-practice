@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpha Clash</title>
+    <!-- Tailwind and DaisyUI CDN starts here -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind and DaisyUI CDN ends here -->
+    <!-- Font starts here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font ends here -->
+    <!-- Basic styles starts here -->
+    <style>
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+    <!-- Basic styles ends here -->
+  </head>
+  <body>
+    <main class="bg-[#1E1E1E] min-h-screen">
+      <!-- Home starts here -->
+      <section
+        class="bg-[url('./images/background.png')] min-h-screen bg-no-repeat bg-center flex flex-col items-center justify-center "
+      id="home">
+        <h1
+          class="text-white text-center text-4xl md:text-8xl font-extrabold font-inter"
+        >
+          ALPHABET CLASH
+        </h1>
+        <p class="text-white text-center font-semibold py-5 w-[90%] md:w-full">
+          Unleash Your Keyboard Kung Fu : Press “Enter” to Play
+        </p>
+        <button class="btn font-semibold block mx-auto" id="play-btn" onclick="play_game()">Play Now</button>
+      </section>
+      <!-- Home ends here -->
+
+      <!-- Playground starts here -->
+      <section
+        class="bg-[url('./images/background.png')] min-h-screen bg-no-repeat bg-center container mx-auto max-w-screen-xl hidden" id="playground"
+      >
+      <div class="border-[20px] rounded-xl border-[#010313CC]">
+        <span class="text-3xl md:text-6xl flex justify-center items-center font-bold md:font-extrabold font-poppins md:py-[100px] py-12 bg-[#FFFFFFB3]" id="play-screen">Start</span>
+
+      </div>
+
+
+        <div>
+          <div class="flex justify-center gap-1 w-full pt-10">
+            <kbd class="kbd"id=
+            'q'>q</kbd>
+            <kbd class="kbd"id=
+            'w'>w</kbd>
+            <kbd class="kbd"id=
+            'e'>e</kbd>
+            <kbd class="kbd"id=
+            'r'>r</kbd>
+            <kbd class="kbd"id=
+            't'>t</kbd>
+            <kbd class="kbd"id=
+            'y'>y</kbd>
+            <kbd class="kbd"id=
+            'u'>u</kbd>
+            <kbd class="kbd"id=
+            'i'>i</kbd>
+            <kbd class="kbd"id=
+            'o'>o</kbd>
+            <kbd class="kbd"id=
+            'p'>p</kbd>
+          </div>
+
+          <div class="flex justify-center gap-1 my-1 w-full">
+            <kbd class="kbd" id="a">a</kbd>
+            <kbd class="kbd" id="s">s</kbd>
+            <kbd class="kbd" id="d">d</kbd>
+            <kbd class="kbd" id="f">f</kbd>
+            <kbd class="kbd" id="g">g</kbd>
+            <kbd class="kbd" id="h">h</kbd>
+            <kbd class="kbd" id="j">j</kbd>
+            <kbd class="kbd" id="k">k</kbd>
+            <kbd class="kbd" id="l">l</kbd>
+          </div>
+          <div class="flex justify-center gap-1 my-1 w-full">
+            <kbd class="kbd" id="z">z</kbd>
+            <kbd class="kbd" id="x">x</kbd>
+            <kbd class="kbd" id="c">c</kbd>
+            <kbd class="kbd" id="v">v</kbd>
+            <kbd class="kbd" id="b">b</kbd>
+            <kbd class="kbd" id="n">n</kbd>
+            <kbd class="kbd" id="m">m</kbd>
+            <kbd class="kbd" id="/">/</kbd>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row md:justify-between items-center-center gap-6 md:gap-0 py-5 md:py-8"
+        >
+          <button
+            class="btn px-8 bg-[#894189] border-none outline-none rounded-full text-white font-poppins w-40 md:ml-0 mx-auto md:m-0 font-bold"
+          >
+            Life<img src="./images/Group23.svg" alt="" /> <span id="life-score">1</span>
+          </button>
+
+          <button
+            class="btn px-8 bg-[#360490] border-none outline-none rounded-full text-white font-poppins w-40 md:ml-0 mx-auto md:m-0 font-bold"
+          >
+            Score<img src="./images/monetization_on.svg" alt="" />
+            <span id="live-score">0</span>
+          </button>
+        </div>
+      </section>
+      <!-- Playground ends here -->
+
+      <!-- Final score starts here -->
+      <section class="bg-[url('./images/background.png')] min-h-screen bg-no-repeat bg-center flex items-center justify-center hidden" id="final-score" id="final-score">
+        <div class="flex flex-col items-center justify-center space-y-3 font-poppins bg-[#4F209E] p-10 rounded-xl shadow-xl">
+            <h3 class="text-3xl text-white font-semibold">Game Over! </h3>
+            <h1 class="text-5xl text-white font-extrabold">Score: <span id="last-score">14</span></h1>
+            <button class="btn" onclick="play_game()"> Play Again</button>
+            <p class="text-white">Practice will make you Pro..</p>
+        </div>
+
+      </section>
+      <!-- Final score ends here -->
+    </main>
+    <!-- Javascript starts here -->
+    <script src="/scripts/script.js"></script>
+    <!-- Javascript ends here -->
+  </body>
+</html>
