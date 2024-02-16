@@ -38,6 +38,7 @@ document.addEventListener("keyup", function (event) {
     }
   }
   if(event.key=="Escape"||event.key=="Enter"){
+    alert("Game Over")
     game_over();
   }
 });
